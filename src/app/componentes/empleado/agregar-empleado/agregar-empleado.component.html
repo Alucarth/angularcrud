@@ -1,0 +1,77 @@
+<div class="card">
+    <div class="card-header">AGEREGAR EMPLEADO</div>
+    <div class="card-body">
+        <form ngNativeValidate [formGroup]="formularioDeEmpleados" (ngSubmit)="enviarDatos()">         
+            <div class="mb-3">
+                <label for="" class="form-label">CARGO</label>
+                <input required type="text" class="form-control" formControlName="id_cargo"
+                    aria-describedby="helpId" placeholder="Escribe tu cargo"/>             
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">CARNET DE IDENTIDAD</label>
+                <input required type="number" class="form-control" formControlName="ci"
+                    aria-describedby="helpId" placeholder="Escribe tu Carnet de Identidad"/>             
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">NOMBRE</label>
+                <input required type="text" class="form-control" formControlName="nombre"
+                    aria-describedby="helpId" placeholder="Escribe tu nombre"/>             
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">APELLIDO PATERNO</label>
+                <input required type="text" class="form-control" formControlName="paterno"
+                    aria-describedby="helpId" placeholder="Escribe tu apellido paterno"/>             
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">APELLIDO MATERNO</label>
+                <input required type="text" class="form-control" formControlName="materno"
+                    aria-describedby="helpId" placeholder="Escribe tu apellido materno"/>             
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">DIRECCION</label>
+                <input required type="text" class="form-control" formControlName="direccion"
+                    aria-describedby="helpId" placeholder="Escribe tu direccion"/>             
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">TELEFONO</label>
+                <input required type="number" class="form-control" formControlName="telefono"
+                    aria-describedby="helpId" placeholder="Escribe tu telefono"/>             
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">FECHA DE NACIMIENTO</label>
+                <input required type="date" class="form-control" formControlName="Fecha_Nacimiento"
+                    aria-describedby="helpId" placeholder="Escribe tu fecha de nacimiento"/>             
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">GENERO</label><br>
+                <input type="radio" formControlName="genero" value="F">Femenino &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" formControlName="genero" value="M">Masculino <br>     
+            </div>
+            <div *ngFor="let choice of checks; let i=index" class="col-md-2">
+                <label>
+                  <input type="checkbox" [value]="choice.value" (change)="onCheckChange($event)">
+                  {{choice.description}}
+                </label>
+              </div>
+           <!--  
+
+               <div class="mb-3">
+                   <label for="" class="form-label">INTERESES</label><br>
+                   <input type="checkbox" formControlName="intereses" > Estudiar
+                   <input type="checkbox" formControlName="intereses" > Deporte
+                   <input type="checkbox" formControlName="intereses" > Trabajar
+                     
+               </div>
+           -->
+            
+
+            
+            <div class="btn-group" role="group" aria-label="Button group name">
+                <button  type="submit"  class="btn btn-success">Agregar</button>
+                <button type="button" routerLink="/listar-empleado" class="btn btn-primary">Cancelar</button>
+            </div>           
+        </form>
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+

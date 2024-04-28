@@ -1,0 +1,53 @@
+<div class="card">
+    <div class="card-header">
+        <a class="btn btn-success" routerLink="/agregar-empleado/"> Agregar Nuevo Empleado </a>
+    </div>
+    <div class="card-body">
+        <h1>LISTA EMPLEADOS</h1>
+        <div
+            class="table-responsive"
+        >
+            <table
+                class="table"
+            >
+                <thead>
+                    <tr>
+                        <th scope="col">CARGO</th>
+                        <th scope="col">CI</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">PATERNO</th>
+                        <th scope="col">MATERNO</th>
+                        <th scope="col">DIRECCION</th>
+                        <th scope="col">TELEFONO</th>
+                        <th scope="col">FECHA DE NACIMIENTO</th>
+                        <th scope="col">GENERO</th>
+                        <th scope="col">INTERES</th>
+                        <th scope="col" colspan="2" style="text-align: center">OPERACIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let empleado of Empleados; let iControl=index">
+                        
+                        <td>{{empleado.id_cargo}}</td>
+                        <td>{{empleado.ci}}</td>
+                        <td>{{empleado.nombre}}</td>
+                        <td>{{empleado.paterno}}</td>
+                        <td>{{empleado.materno}}</td>
+                        <td>{{empleado.direccion}}</td>
+                        <td>{{empleado.telefono}}</td>
+                        <td>{{empleado.Fecha_Nacimiento}}</td>
+                        <td>{{empleado.genero}}</td>
+                        <td>{{empleado.intereses}}</td>
+                        <td>
+                            <a class="btn btn-info" routerLink="/editar-empleado/{{empleado.id_empleado}}"> Editar </a> |                             
+                            <a class="btn btn-danger" (click)="borrarRegistro(empleado.id_empleado,iControl)" role="button" >Borrar</a>
+                        
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
